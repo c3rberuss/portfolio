@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">My Vocabulary</string>
+    <string name="example_action">Example Action</string>
+    <string name="another_action">Another Action</string>
+    <string name="walk">Walk</string>
+    <string name="base_form">Base form</string>
+    <string name="present_progressive">Present progressive</string>
+    <string name="simple_past">Simple past</string>
+    <string name="save_verb">Save verb</string>
+    <string name="required">This field is required</string>
+    <string name="vocabulary_empty">Your vocabulary is empty</string>
+    <string name="spanish_meaning">Spanish meaning</string>
+    <string name="load_failed">Load Failed</string>
+    <string name="search">Search</string>
+    <string name="base_form_item">Base form:</string>
+    <string name="spanish_meaning_item">Spanish meaning:</string>
+    <string name="present_progressive_item">Present progressive:</string>
+    <string name="past_item">Past:</string>
+    <string name="delete">Delete</string>
+</resources>

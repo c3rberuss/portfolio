@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/My_Vocabulary.iml" filepath="$PROJECT_DIR$/.idea/modules/My_Vocabulary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/My_Vocabulary.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/My_Vocabulary.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/My_Vocabulary.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/My_Vocabulary.core.iml" />
+    </modules>
+  </component>
+</project>
