@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Radio  ABBA 900 AM</string>
+    <string name="clear"></string>
+    <string name="iconVolumeDescription">Volumen</string>
+</resources>
