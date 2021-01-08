@@ -1,0 +1,2373 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "ac16fed6bb114b07d49ca0babfc7dd31",
+    "entities": [
+      {
+        "tableName": "usuario",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `id_usuario` INTEGER NOT NULL, `id_empleado` INTEGER NOT NULL, `nombre` TEXT, `usuario` TEXT, `password` TEXT, `admin` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_usuario",
+            "columnName": "id_usuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_empleado",
+            "columnName": "id_empleado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "usuario",
+            "columnName": "usuario",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "admin",
+            "columnName": "admin",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "permiso",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_modulo` INTEGER NOT NULL, `id_usuario` INTEGER NOT NULL, `nombre` TEXT, PRIMARY KEY(`id_modulo`))",
+        "fields": [
+          {
+            "fieldPath": "id_modulo",
+            "columnName": "id_modulo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_usuario",
+            "columnName": "id_usuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_modulo"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "frecuencia",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nombre` TEXT, `proporcion` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "proporcion",
+            "columnName": "proporcion",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "parentezco",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nombre` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "departamento",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_departamento` INTEGER NOT NULL, `nombre_departamento` TEXT, PRIMARY KEY(`id_departamento`))",
+        "fields": [
+          {
+            "fieldPath": "id_departamento",
+            "columnName": "id_departamento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre_departamento",
+            "columnName": "nombre_departamento",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_departamento"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "municipio",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_municipio` INTEGER NOT NULL, `id_departamento_municipio` INTEGER NOT NULL, `nombre_municipio` TEXT, PRIMARY KEY(`id_municipio`))",
+        "fields": [
+          {
+            "fieldPath": "id_municipio",
+            "columnName": "id_municipio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_departamento_municipio",
+            "columnName": "id_departamento_municipio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre_municipio",
+            "columnName": "nombre_municipio",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_municipio"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cliente",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_cliente` INTEGER NOT NULL, `nombre` TEXT, `dui` TEXT, `nit` TEXT, `direccion` TEXT, `departamento` INTEGER NOT NULL, `municipio` INTEGER NOT NULL, `telefono` TEXT, `telefono2` TEXT, `correo` TEXT, `imagen` TEXT, `fecha_registro` TEXT, `fecha_nacimiento` TEXT, `profesion` TEXT, `sincronizado` INTEGER NOT NULL, `revisado` INTEGER NOT NULL, `id_usuario` INTEGER NOT NULL, `negocio` TEXT, `direccion_negocio` TEXT, `actividad_negocio` TEXT, PRIMARY KEY(`id_cliente`))",
+        "fields": [
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dui",
+            "columnName": "dui",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nit",
+            "columnName": "nit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "direccion",
+            "columnName": "direccion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "departamento",
+            "columnName": "departamento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "municipio",
+            "columnName": "municipio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefono",
+            "columnName": "telefono",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telefono2",
+            "columnName": "telefono2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "correo",
+            "columnName": "correo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imagen",
+            "columnName": "imagen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_registro",
+            "columnName": "fecha_registro",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_nacimiento",
+            "columnName": "fecha_nacimiento",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "profesion",
+            "columnName": "profesion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "revisado",
+            "columnName": "revisado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_usuario",
+            "columnName": "id_usuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "negocio",
+            "columnName": "negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "direccion_negocio",
+            "columnName": "direccion_negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "actividad_negocio",
+            "columnName": "actividad_negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_cliente"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "prestamo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_prestamo` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `id_cobrador` INTEGER NOT NULL, `frecuencia` INTEGER NOT NULL, `cuotas` INTEGER NOT NULL, `monto` REAL NOT NULL, `abono` REAL NOT NULL, `saldo` REAL NOT NULL, `finaal` REAL NOT NULL, `cuota` REAL NOT NULL, `fecha` TEXT, `hora` TEXT, `nombre` TEXT, `ultimo_pago` TEXT, `plaan` INTEGER NOT NULL, `sincronizado` INTEGER NOT NULL, `porcentaje` REAL NOT NULL, PRIMARY KEY(`id_prestamo`))",
+        "fields": [
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cobrador",
+            "columnName": "id_cobrador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "frecuencia",
+            "columnName": "frecuencia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuotas",
+            "columnName": "cuotas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "abono",
+            "columnName": "abono",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finaal",
+            "columnName": "finaal",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuota",
+            "columnName": "cuota",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ultimo_pago",
+            "columnName": "ultimo_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "plaan",
+            "columnName": "plaan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "porcentaje",
+            "columnName": "porcentaje",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_prestamo"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "prestamo_detalle",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_detalle` INTEGER NOT NULL, `id_prestamo` INTEGER NOT NULL, `ncuota` INTEGER NOT NULL, `correlativo` TEXT, `monto` REAL NOT NULL, `saldo` REAL NOT NULL, `pagado` INTEGER NOT NULL, `id_cobrador` INTEGER NOT NULL, `fecha_pago` TEXT, `hora_pago` TEXT, `fecha_vence` TEXT, `mora` REAL NOT NULL, `referencia` TEXT, `efectivo` REAL NOT NULL, `sincronizado` INTEGER NOT NULL, PRIMARY KEY(`id_detalle`))",
+        "fields": [
+          {
+            "fieldPath": "id_detalle",
+            "columnName": "id_detalle",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ncuota",
+            "columnName": "ncuota",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "correlativo",
+            "columnName": "correlativo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pagado",
+            "columnName": "pagado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cobrador",
+            "columnName": "id_cobrador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_pago",
+            "columnName": "fecha_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora_pago",
+            "columnName": "hora_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_vence",
+            "columnName": "fecha_vence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referencia",
+            "columnName": "referencia",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "efectivo",
+            "columnName": "efectivo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_detalle"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "planes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `nombre` TEXT, `porcentaje` REAL NOT NULL, `desde` REAL NOT NULL, `hasta` REAL NOT NULL, `frecuencia` INTEGER NOT NULL, `dias_mora` INTEGER NOT NULL, `mora` REAL NOT NULL, `valor_contrato` REAL NOT NULL, `modcontrato` INTEGER NOT NULL, `solointeres` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "porcentaje",
+            "columnName": "porcentaje",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desde",
+            "columnName": "desde",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hasta",
+            "columnName": "hasta",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "frecuencia",
+            "columnName": "frecuencia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dias_mora",
+            "columnName": "dias_mora",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valor_contrato",
+            "columnName": "valor_contrato",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modcontrato",
+            "columnName": "modcontrato",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "solointeres",
+            "columnName": "solointeres",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "plan_requisito",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `id_plan` INTEGER NOT NULL, `id_requisito` INTEGER NOT NULL, `cantidad` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_plan",
+            "columnName": "id_plan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_requisito",
+            "columnName": "id_requisito",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cantidad",
+            "columnName": "cantidad",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "requisito",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `id_plan` TEXT, `cantidad` TEXT, `nombre` TEXT, `descripcion` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_plan",
+            "columnName": "id_plan",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cantidad",
+            "columnName": "cantidad",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cliente_archivo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_archivo` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `fecha` TEXT, `nombre` TEXT, `descripcion` TEXT, `url` TEXT, `sincronizado` INTEGER NOT NULL, PRIMARY KEY(`id_archivo`))",
+        "fields": [
+          {
+            "fieldPath": "id_archivo",
+            "columnName": "id_archivo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_archivo"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cliente_referencia",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `nombre` TEXT, `telefono` TEXT, `parentezco` TEXT, `fecha_registro` TEXT, `sincronizada` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telefono",
+            "columnName": "telefono",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parentezco",
+            "columnName": "parentezco",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_registro",
+            "columnName": "fecha_registro",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizada",
+            "columnName": "sincronizada",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_solicitud` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_cliente` INTEGER NOT NULL, `fecha` TEXT, `hora` TEXT, `monto` REAL NOT NULL, `cuotas` REAL NOT NULL, `cuota` REAL NOT NULL, `frecuencia` INTEGER NOT NULL, `porcentaje` REAL NOT NULL, `final_` REAL NOT NULL, `abono` REAL NOT NULL, `saldo` REAL NOT NULL, `plan` INTEGER NOT NULL, `autoriza` INTEGER NOT NULL, `entregado` INTEGER NOT NULL, `ultimo_pago` TEXT, `procesada` INTEGER NOT NULL, `estado` INTEGER NOT NULL, `divcontrato` INTEGER NOT NULL, `id_vendedor` INTEGER NOT NULL, `contrato` REAL NOT NULL, `destino` TEXT, `sincronizada` INTEGER NOT NULL, `tiene_fiador` INTEGER NOT NULL, `refinanciamiento` INTEGER NOT NULL, `id_refinanciado` INTEGER NOT NULL, `mora` REAL NOT NULL, `dias_mora` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id_solicitud",
+            "columnName": "id_solicitud",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuotas",
+            "columnName": "cuotas",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuota",
+            "columnName": "cuota",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "frecuencia",
+            "columnName": "frecuencia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "porcentaje",
+            "columnName": "porcentaje",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "final_",
+            "columnName": "final_",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "abono",
+            "columnName": "abono",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plan",
+            "columnName": "plan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "autoriza",
+            "columnName": "autoriza",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entregado",
+            "columnName": "entregado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ultimo_pago",
+            "columnName": "ultimo_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "procesada",
+            "columnName": "procesada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "divcontrato",
+            "columnName": "divcontrato",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_vendedor",
+            "columnName": "id_vendedor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contrato",
+            "columnName": "contrato",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "destino",
+            "columnName": "destino",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizada",
+            "columnName": "sincronizada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tiene_fiador",
+            "columnName": "tiene_fiador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "refinanciamiento",
+            "columnName": "refinanciamiento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_refinanciado",
+            "columnName": "id_refinanciado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dias_mora",
+            "columnName": "dias_mora",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_solicitud"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud_detalle",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_detalle` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_prestamo` INTEGER NOT NULL, `ncuota` INTEGER NOT NULL, `correlativo` TEXT, `monto` REAL NOT NULL, `saldo` REAL NOT NULL, `pagado` INTEGER NOT NULL, `id_cobrador` INTEGER NOT NULL, `fecha_pago` TEXT, `hora_pago` TEXT, `fecha_vence` TEXT, `mora` REAL NOT NULL, `referencia` TEXT, `sincronizado` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id_detalle",
+            "columnName": "id_detalle",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ncuota",
+            "columnName": "ncuota",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "correlativo",
+            "columnName": "correlativo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pagado",
+            "columnName": "pagado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cobrador",
+            "columnName": "id_cobrador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_pago",
+            "columnName": "fecha_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora_pago",
+            "columnName": "hora_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_vence",
+            "columnName": "fecha_vence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "referencia",
+            "columnName": "referencia",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_detalle"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud_fiador",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idFiador` INTEGER NOT NULL, `actividad` TEXT, `direccion` TEXT, `negocio` TEXT, `fecha` TEXT, `idPrestamo` INTEGER NOT NULL, `tieneNegocio` INTEGER NOT NULL, `sincronizado` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idFiador",
+            "columnName": "idFiador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actividad",
+            "columnName": "actividad",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "direccion",
+            "columnName": "direccion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "negocio",
+            "columnName": "negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idPrestamo",
+            "columnName": "idPrestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tieneNegocio",
+            "columnName": "tieneNegocio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud_garantia",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_garantia` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_cliente` INTEGER NOT NULL, `id_prestamo` INTEGER NOT NULL, `fecha` TEXT, `nombre` TEXT, `descripcion` TEXT, `url` TEXT, `departamento` INTEGER NOT NULL, `municipio` INTEGER NOT NULL, `direccion` TEXT, `sincronizada` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id_garantia",
+            "columnName": "id_garantia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "departamento",
+            "columnName": "departamento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "municipio",
+            "columnName": "municipio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "direccion",
+            "columnName": "direccion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizada",
+            "columnName": "sincronizada",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_garantia"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cobros_procesado",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cantidad` INTEGER NOT NULL, `fecha` TEXT, `id_prestamo` INTEGER NOT NULL, `id_usuario` INTEGER NOT NULL, `monto` REAL NOT NULL, `mora` REAL NOT NULL, `hora` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cantidad",
+            "columnName": "cantidad",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_usuario",
+            "columnName": "id_usuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_solicitud` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `fecha` TEXT, `hora` TEXT, `monto` REAL NOT NULL, `cuotas` REAL NOT NULL, `cuota` REAL NOT NULL, `frecuencia` INTEGER NOT NULL, `porcentaje` REAL NOT NULL, `final_` REAL NOT NULL, `abono` REAL NOT NULL, `saldo` REAL NOT NULL, `plan` INTEGER NOT NULL, `autoriza` INTEGER NOT NULL, `entregado` INTEGER NOT NULL, `ultimo_pago` TEXT, `id_vendedor` INTEGER NOT NULL, `estado` INTEGER NOT NULL, `contrato` REAL NOT NULL, `divcontrato` INTEGER NOT NULL, `destino` TEXT, `refinanciamiento` INTEGER NOT NULL, `id_refinanciado` INTEGER NOT NULL, `procesada` INTEGER NOT NULL, `sincronizada` INTEGER NOT NULL, `tiene_fiador` INTEGER NOT NULL, `mora` REAL NOT NULL, `dias_mora` INTEGER NOT NULL, `fecha_log` TEXT, `hora_log` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_solicitud",
+            "columnName": "id_solicitud",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuotas",
+            "columnName": "cuotas",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuota",
+            "columnName": "cuota",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "frecuencia",
+            "columnName": "frecuencia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "porcentaje",
+            "columnName": "porcentaje",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "final_",
+            "columnName": "final_",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "abono",
+            "columnName": "abono",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plan",
+            "columnName": "plan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "autoriza",
+            "columnName": "autoriza",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entregado",
+            "columnName": "entregado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ultimo_pago",
+            "columnName": "ultimo_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id_vendedor",
+            "columnName": "id_vendedor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contrato",
+            "columnName": "contrato",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "divcontrato",
+            "columnName": "divcontrato",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "destino",
+            "columnName": "destino",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "refinanciamiento",
+            "columnName": "refinanciamiento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_refinanciado",
+            "columnName": "id_refinanciado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "procesada",
+            "columnName": "procesada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sincronizada",
+            "columnName": "sincronizada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tiene_fiador",
+            "columnName": "tiene_fiador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dias_mora",
+            "columnName": "dias_mora",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora_",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud_detalle_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_detalle` INTEGER NOT NULL, `id_prestamo` INTEGER NOT NULL, `ncuota` INTEGER NOT NULL, `correlativo` TEXT, `monto` REAL NOT NULL, `saldo` REAL NOT NULL, `pagado` INTEGER NOT NULL, `fecha_pago` TEXT, `hora_pago` TEXT, `mora` REAL NOT NULL, `fecha_vence` TEXT, `referencia` TEXT, `id_cobrador` INTEGER NOT NULL, `sincronizado` INTEGER NOT NULL, `fecha_log` TEXT, `hora_log` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_detalle",
+            "columnName": "id_detalle",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ncuota",
+            "columnName": "ncuota",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "correlativo",
+            "columnName": "correlativo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pagado",
+            "columnName": "pagado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_pago",
+            "columnName": "fecha_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora_pago",
+            "columnName": "hora_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_vence",
+            "columnName": "fecha_vence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referencia",
+            "columnName": "referencia",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id_cobrador",
+            "columnName": "id_cobrador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud_garantia_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_garantia` INTEGER NOT NULL, `id_prestamo` INTEGER NOT NULL, `fecha` TEXT, `descripcion` TEXT, `url` TEXT, `direccion` TEXT, `municipio` INTEGER NOT NULL, `departamento` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `nombre` TEXT, `fecha_log` TEXT, `hora` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_garantia",
+            "columnName": "id_garantia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "direccion",
+            "columnName": "direccion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "municipio",
+            "columnName": "municipio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "departamento",
+            "columnName": "departamento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solicitud_fiador_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` INTEGER NOT NULL, `idPrestamo` INTEGER NOT NULL, `idFiador` INTEGER NOT NULL, `fecha` TEXT, `negocio` TEXT, `direccion` TEXT, `actividad` TEXT, `fecha_log` TEXT, `hora_log` TEXT, `tieneNegocio` INTEGER NOT NULL, `sincronizado` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id_",
+            "columnName": "id_",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idPrestamo",
+            "columnName": "idPrestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idFiador",
+            "columnName": "idFiador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "negocio",
+            "columnName": "negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "direccion",
+            "columnName": "direccion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "actividad",
+            "columnName": "actividad",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tieneNegocio",
+            "columnName": "tieneNegocio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cliente_archivo_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_archivo` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `fecha` TEXT, `nombre` TEXT, `descripcion` TEXT, `url` TEXT, `fecha_log` TEXT, `hora_log` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_archivo",
+            "columnName": "id_archivo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descripcion",
+            "columnName": "descripcion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora_",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cliente_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_cliente` INTEGER NOT NULL, `nombre` TEXT, `dui` TEXT, `nit` TEXT, `direccion` TEXT, `departamento` INTEGER NOT NULL, `municipio` INTEGER NOT NULL, `telefono` TEXT, `telefono2` TEXT, `correo` TEXT, `imagen` TEXT, `fecha_registro` TEXT, `id_usuario` INTEGER NOT NULL, `fecha_nacimiento` TEXT, `profesion` TEXT, `negocio` TEXT, `direccion_negocio` TEXT, `actividad_negocio` TEXT, `revisado` INTEGER NOT NULL, `fecha_log` TEXT, `hora_log` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dui",
+            "columnName": "dui",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nit",
+            "columnName": "nit",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "direccion",
+            "columnName": "direccion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "departamento",
+            "columnName": "departamento",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "municipio",
+            "columnName": "municipio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefono",
+            "columnName": "telefono",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telefono2",
+            "columnName": "telefono2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "correo",
+            "columnName": "correo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imagen",
+            "columnName": "imagen",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_registro",
+            "columnName": "fecha_registro",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id_usuario",
+            "columnName": "id_usuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_nacimiento",
+            "columnName": "fecha_nacimiento",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "profesion",
+            "columnName": "profesion",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "negocio",
+            "columnName": "negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "direccion_negocio",
+            "columnName": "direccion_negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "actividad_negocio",
+            "columnName": "actividad_negocio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "revisado",
+            "columnName": "revisado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "cliente_referencia_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `nombre` TEXT, `telefono` TEXT, `parentezco` TEXT, `fecha_registro` TEXT, `sincronizada` INTEGER NOT NULL, `fecha_log` TEXT, `hora_log` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id_",
+            "columnName": "id_",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telefono",
+            "columnName": "telefono",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parentezco",
+            "columnName": "parentezco",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_registro",
+            "columnName": "fecha_registro",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizada",
+            "columnName": "sincronizada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "prestamo_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_prestamo` INTEGER NOT NULL, `id_cliente` INTEGER NOT NULL, `fecha` TEXT, `hora` TEXT, `monto` REAL NOT NULL, `cuotas` INTEGER NOT NULL, `cuota` REAL NOT NULL, `frecuencia` INTEGER NOT NULL, `porcentaje` REAL NOT NULL, `final` REAL NOT NULL, `abono` REAL NOT NULL, `saldo` REAL NOT NULL, `id_cobrador` INTEGER NOT NULL, `plan` INTEGER NOT NULL, `ultimo_pago` TEXT, `fecha_log` TEXT, `hora_log` TEXT, `nombre` TEXT, `sincronizado` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cliente",
+            "columnName": "id_cliente",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuotas",
+            "columnName": "cuotas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuota",
+            "columnName": "cuota",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "frecuencia",
+            "columnName": "frecuencia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "porcentaje",
+            "columnName": "porcentaje",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finaal",
+            "columnName": "final",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "abono",
+            "columnName": "abono",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_cobrador",
+            "columnName": "id_cobrador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "plaan",
+            "columnName": "plan",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ultimo_pago",
+            "columnName": "ultimo_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fecha_",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora_",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "prestamo_detalle_log",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_detalle` INTEGER NOT NULL, `id_prestamo` INTEGER NOT NULL, `ncuota` INTEGER NOT NULL, `correlativo` TEXT, `monto` REAL NOT NULL, `saldo` REAL NOT NULL, `pagado` INTEGER NOT NULL, `fecha_pago` TEXT, `hora_pago` TEXT, `mora` REAL NOT NULL, `fecha_vence` TEXT, `referencia` TEXT, `efectivo` REAL NOT NULL, `fecha_log` TEXT, `hora_log` TEXT, `id_cobrador` INTEGER NOT NULL, `sincronizado` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_detalle",
+            "columnName": "id_detalle",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id_prestamo",
+            "columnName": "id_prestamo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ncuota",
+            "columnName": "ncuota",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "correlativo",
+            "columnName": "correlativo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldo",
+            "columnName": "saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pagado",
+            "columnName": "pagado",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_pago",
+            "columnName": "fecha_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora_pago",
+            "columnName": "hora_pago",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mora",
+            "columnName": "mora",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha_vence",
+            "columnName": "fecha_vence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "referencia",
+            "columnName": "referencia",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "efectivo",
+            "columnName": "efectivo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fecha",
+            "columnName": "fecha_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hora",
+            "columnName": "hora_log",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id_cobrador",
+            "columnName": "id_cobrador",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sincronizado",
+            "columnName": "sincronizado",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"ac16fed6bb114b07d49ca0babfc7dd31\")"
+    ]
+  }
+}

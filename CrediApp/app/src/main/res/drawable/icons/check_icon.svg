@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 31.674 31.675"
+   style="enable-background:new 0 0 31.674 31.675;"
+   xml:space="preserve"
+   class=""
+   sodipodi:docname="check_icon.svg"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"><metadata
+   id="metadata924"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs922" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1366"
+   inkscape:window-height="720"
+   id="namedview920"
+   showgrid="false"
+   inkscape:zoom="0.52148438"
+   inkscape:cx="121.08957"
+   inkscape:cy="65.893598"
+   inkscape:window-x="0"
+   inkscape:window-y="20"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="g913" /><g
+   id="g917"><g
+     id="g915">
+	<g
+   id="g913">
+		<path
+   d="M 22.174,5.9147305 V 23.86173 l 3.092,7.937 3.669,-7.803 0.027,-18.0809995 h 0.012 V 0.12373047 H 22.165 V 5.9147305 Z m 1.259,-4.522 h 4.273 v 2.145 h -4.272 z m -0.627,21.5909995 1.72,1.935 0.962,-1.578 1.1,1.578 1.746,-1.719 v 0.591 l -2.097,4.453 H 24.55 l -1.744,-4.443 z"
+   data-original="#000000"
+   class="active-path"
+   data-old_color="#000000"
+   id="path907"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" />
+		<path
+   d="M2.702,25.812h16.48V9.332H2.702V25.812z M3.99,10.622h13.901v13.901H3.99V10.622z"
+   data-original="#000000"
+   class="active-path"
+   data-old_color="#000000"
+   fill="#000000"
+   id="path909"
+   style="fill:#ffffff" />
+		<polygon
+   points="4.964,17.221 5.667,19.721 8.863,23.018 16.072,16.766 16.072,12.128 8.912,20.452   "
+   data-original="#000000"
+   class="active-path"
+   data-old_color="#000000"
+   fill="#000000"
+   id="polygon911"
+   style="fill:#ffffff" />
+	</g>
+</g></g> </svg>

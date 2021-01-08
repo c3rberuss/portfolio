@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Credi App</string>
+    <string name="pagar">PAGAR</string>
+    <string name="cuotas_pagar">Cuotas a Pagar:</string>
+    <string name="cuotas_a_pagar">Cuotas a Pagar</string>
+
+</resources>

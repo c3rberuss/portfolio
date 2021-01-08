@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#485460</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#10ac84</color>
+    <color name="backgroundDark">#1e272e</color>
+    <color name="bg_color">#e8edf3</color>
+    <color name="white">#FFFFFF</color>s
+    <color name="rojo">#ff3f34</color>
+    <color name="amarillo">#f1c40f</color>
+    <color name="morado_azul">#3c40c6</color>
+    <color name="verde">#10ac84</color>
+
+    <color name="seleccionado">#ffeaa7</color>
+    <color name="mora">#F8584F</color>
+
+    <color name="black" >#000</color>
+
+    <color name="azul">#0091EA</color>
+</resources>

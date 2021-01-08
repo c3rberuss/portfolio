@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#3F51B5"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/n_cuota_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:text="N°"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/descripcion_cuota_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:text="Descripción"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/fecha_cuota_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:text="Fecha"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:id="@+id/valor_cuota_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Valor"
+        android:textColor="#FFF" />
+</LinearLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.c3rberuss.crediapp"
+    android:usesCleartextTraffic="true"
+    tools:targetApi="m">
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <application
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="n">
+        <activity android:name="com.c3rberuss.crediapp.activities.CobrosDiaActivity"/>
+        <activity android:name="com.c3rberuss.crediapp.activities.PagoCuotaMontoActivity" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.DetalleSolicitudActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.DetalleClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.RefinanciarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.ListaCandidatosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.ListaSolicitudesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.PrestamosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.CameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.AgregarCliente"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.ClientesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.CalculadoraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.PlanesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.ListaCuotasActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.SolicitudCreditoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.PrestamoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.MostrarPrestamoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.PrestamoDetalleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.activities.PagoCuotaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.c3rberuss.crediapp.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+               <!-- <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.c3rberuss.crediapp.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_providers_paths" />
+        </provider>
+        <!--
+        <receiver
+            android:name=".utils.Sincronizador"
+            android:enabled="true"
+            android:exported="true" />
+        -->
+        <receiver
+            android:name=".utils.Stats"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver android:name=".utils.BootBroadCast">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.c3rberuss.crediapp.utils.TrackingServiceJob"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <service
+            android:name="com.c3rberuss.crediapp.utils.TrackingService" />
+
+    </application>
+
+</manifest>

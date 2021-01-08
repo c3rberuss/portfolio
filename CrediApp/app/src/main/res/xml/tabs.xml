@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        drawable="@android:drawable/ic_input_add"
+        text="Inicio" />
+
+    <tab
+        drawable="@drawable/ic_home"
+        text="Inicio" />
+
+    <tab
+        drawable="@android:drawable/ic_input_add"
+        text="favorite" />
+
+</tabs>
