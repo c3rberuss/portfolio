@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1061510363463",
+    "firebase_url": "https://tire-services.firebaseio.com",
+    "project_id": "tire-services",
+    "storage_bucket": "tire-services.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061510363463:android:de6ce705f49fc8e91e3462",
+        "android_client_info": {
+          "package_name": "com.c3rberuss.services"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061510363463-kpbvm6jnp2dqmt78r0mhe8m392kdiups.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaBDPoi4BzUtC4Rgv8bQEDctVBW0KwbRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061510363463-kpbvm6jnp2dqmt78r0mhe8m392kdiups.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
