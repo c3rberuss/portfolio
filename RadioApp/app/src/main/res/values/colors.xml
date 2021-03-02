@@ -5,7 +5,11 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FEFEFF</color>
-    <color name="accentColor">#3A91F7</color>
+    <color name="shark">#1C1C1E</color>
+    <color name="charade">#2C2B39</color>
+    <color name="titan_white">#FEFEFF</color>
+
+    <color name="dove_gray">#6E6E6E</color>
+
+    <color name="dodger_blue">#2E69FF</color>
 </resources>

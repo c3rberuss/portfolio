@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RadioApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="stream">Stream</string>
+    <string name="settings">Settings</string>
+    <string name="genres_placeholder">Pop, Hip-Hop</string>
+    <string name="radio_station_placeholder">Radio Station</string>
+    <string name="icon_volume_up">Icon volume up</string>
+    <string name="icon_volume_down">Icon volume down</string>
+    <string name="previous">Previous</string>
+    <string name="previous_station_button">Previous station button</string>
+    <string name="next">Next</string>
+    <string name="next_station_button">Next station button</string>
+    <string name="play_and_pause_button">Play and Pause button</string>
+</resources>

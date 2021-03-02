@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/shark"
+    android:fitsSystemWindows="true"
+    tools:context=".framework.presentation.stream.StreamFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/lbl_stattion_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/genres_placeholder"
+            android:textAppearance="@style/TextAppearance.Subtitle"
+            android:textColor="@color/dove_gray" />
+
+        <TextView
+            android:id="@+id/lbl_station_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_station_placeholder"
+            android:textColor="@color/titan_white"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="64dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/previous_station_btn"
+                android:layout_width="@dimen/control_station"
+                android:layout_height="@dimen/control_station"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/previous_station_button"
+                android:src="@drawable/ic_previous" />
+
+            <TextView
+                android:id="@+id/lbl_previous"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding"
+                android:gravity="center"
+                android:text="@string/previous"
+                android:textAppearance="@style/TextAppearance.Subtitle" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/play_n_pause_btn"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded"
+            android:contentDescription="@string/play_and_pause_button"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_play_rounded" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/next_station_btn"
+                android:layout_width="@dimen/control_station"
+                android:layout_height="@dimen/control_station"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/next_station_button"
+                android:src="@drawable/ic_next" />
+
+            <TextView
+                android:id="@+id/lbl_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding"
+                android:gravity="center"
+                android:text="@string/next"
+                android:textAppearance="@style/TextAppearance.Subtitle" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/icon_volume_down"
+            android:layout_width="@dimen/volume_icon"
+            android:layout_height="@dimen/volume_icon"
+            android:contentDescription="@string/icon_volume_down"
+            android:src="@drawable/ic_volume_down" />
+
+        <SeekBar
+            android:id="@+id/volume_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:progress="75"
+            android:progressTint="@color/titan_white"
+            android:thumbTint="@color/titan_white" />
+
+        <ImageView
+            android:id="@+id/icon_volume_up"
+            android:layout_width="@dimen/volume_icon"
+            android:layout_height="@dimen/volume_icon"
+            android:contentDescription="@string/icon_volume_up"
+            android:src="@drawable/ic_volume_up" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

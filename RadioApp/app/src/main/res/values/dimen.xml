@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="volume_icon">24dp</dimen>
+    <dimen name="control_station">28dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="media_control">70dp</dimen>
+    <dimen name="circular_radius">160dp</dimen>
+    <fraction name="percent">30</fraction>
+</resources>
